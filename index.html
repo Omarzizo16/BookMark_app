@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+    <!-- ===== favicon ===== -->
+    <link rel="icon" href="image/bookmark.png" />
+    <!--! Google Fonts -->
+    <!-- ? "Pacifico" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ? "Righteous" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ? "PT Sans Caption" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!--! Font Awesome -->
+    <link rel="stylesheet" href="fontawesome 6/css/all.min.css" />
+    <!-- ! bootstrap files-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <!-- ! sweet alert  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <!--! Main Style Sheet -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <main class="py-5 position-relative vh-100">
+      <div
+        class="container d-flex justify-content-center align-items-center flex-column"
+      >
+        <div class="bookmark-header">
+          <h1 class="py-2 position-relative">Bookmarker</h1>
+        </div>
+        <div
+          class="bookmark-body accordion w-100 p-3 py-4 mt-5 gap-4 d-flex justify-content-center align-items-center flex-column"
+        >
+          <h2>
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h2>
+          <div class="site-name w-100">
+            <label for="inputName" class="form-label fw-semibold pb-0">
+              <i class="fa-solid fa-book-bookmark pe-2"></i>
+              Site Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              placeholder="Bookmark Name"
+            />
+          </div>
+          <div class="site-url w-100">
+            <label for="inputSite" class="form-label fw-semibold pb-0">
+              <i class="fa-solid fa-link pe-2"></i>
+              Site URL
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputSite"
+              placeholder="Website URL"
+            />
+          </div>
+          <button id="btnSubmit" class="btn btn-submit px-5">Submit</button>
+          <button
+            id="btnSetFormForUpdate"
+            onclick="confirmUpdate()"
+            class="btn btn-update d-none"
+          >
+            Update
+          </button>
+        </div>
+
+        <div class="output w-100 text-center">
+          <div
+            id="searchGroup"
+            class="searchGroup w-75 mx-auto d-flex justify-content-evenly mt-4 d-none"
+          >
+            <div class="form-floating w-50 me-3">
+              <input
+                type="text"
+                class="form-control"
+                oninput="searchBookMarkName()"
+                id="searchByName"
+                placeholder="searchByName"
+              />
+              <label for="searchByName">Search By Name</label>
+            </div>
+            <div class="form-floating w-50">
+              <input
+                type="url"
+                class="form-control"
+                oninput="searchBookMarkUrl()"
+                id="searchByUrl"
+                placeholder="searchByUrl"
+              />
+              <label for="searchByUrl">Search By Url</label>
+            </div>
+          </div>
+
+          <button
+            id="btnDeleteAll"
+            onclick="deleteAll()"
+            class="btn btn-submit px-5 d-none mt-3 w-75"
+          >
+            Delete Alls ( <span id="deleteCount"></span> )
+          </button>
+          <table class="table mt-4 text-center bg-light">
+            <thead>
+              <tr class="text-capitalize">
+                <th>index</th>
+                <th>Website Name</th>
+                <th>Visit</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="tablecontent"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
